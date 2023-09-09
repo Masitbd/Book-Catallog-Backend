@@ -1,0 +1,106 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String            @id @default(uuid())
+  name             String
+  email            String            @unique
+  password         String
+  role             UserRole
+  contactNo        String
+  address          String
+  profikeImg       String
+  reviewAndRatings ReviewAndRating[]
+  orders           Order[]
+}
+
+enum UserRole {
+  ADMIN
+  CUSTOMER
+}
+
+model Category {
+  id    String @id @default(uuid())
+  title String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  books     Book[]
+
+  @@map("categories")
+}
+
+model Book {
+  id              String @id @default(uuid())
+  title           String
+  author          String
+  price           Float
+  gerne           String
+  publicationDate String
+
+  categoryId       String
+  category         Category          @relation(fields: [categoryId], references: [id])
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  reviewAndRatings ReviewAndRating[]
+  orderBooks       OrderBook[]
+
+  @@map("books")
+}
+
+model ReviewAndRating {
+  id     String @id @default(uuid())
+  review String
+  rating String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  bookId String
+  book   Book   @relation(fields: [bookId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("review-and-ratings")
+}
+
+model Order {
+  id     String      @id @default(uuid())
+  status OrderStatus
+
+  userId     String
+  user       User        @relation(fields: [userId], references: [id])
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  orderBooks OrderBook[]
+
+  @@map("orders")
+}
+
+enum OrderStatus {
+  PENDING
+  SHIPPED
+  DELIVERED
+}
+
+model OrderBook {
+  id        String   @id @default(uuid())
+  orderId   String
+  bookId    String
+  quantity  Int
+  order     Order    @relation(fields: [orderId], references: [id])
+  book      Book     @relation(fields: [bookId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("ordered_books")
+}

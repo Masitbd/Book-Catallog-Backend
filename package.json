@@ -9,8 +9,7 @@
     "lint:fix": "eslint . --fix",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "prettier:fix": "prettier --write .",
-    "lint-prettier": "yarn lint:check && yarn prettier:check",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint-prettier": "yarn lint:check && yarn prettier:check"
   },
   "author": "Programming Hero",
   "license": "ISC",
@@ -31,6 +30,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@prisma/client": "^5.2.0",
     "@types/bcrypt": "^5.0.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/jsonwebtoken": "^9.0.2",
@@ -41,6 +41,8 @@
     "express": "^4.18.2",
     "http-status": "^1.6.2",
     "jsonwebtoken": "^9.0.0",
+    "node": "^20.6.0",
+    "prisma": "^5.2.0",
     "winston": "^3.9.0",
     "winston-daily-rotate-file": "^4.7.1",
     "zod": "^3.21.4"

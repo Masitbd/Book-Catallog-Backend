@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/sarker24/next_level_pheho/prisma/Assignment-08/Book-Catallog-Backend/logs/winston/successes/.ab294a5a93d0dd8b4ae1c5778d235224a2245d05-audit.json",
+    "files": [
+        {
+            "date": 1694265520744,
+            "name": "/home/sarker24/next_level_pheho/prisma/Assignment-08/Book-Catallog-Backend/logs/winston/successes/phu-2023-09-09-15-success.log",
+            "hash": "062c1a6fc2b7c36b2d8b2b82eafc69406bf75e5f664fa260fb0a9547974aa880"
+        },
+        {
+            "date": 1694277418797,
+            "name": "/home/sarker24/next_level_pheho/prisma/Assignment-08/Book-Catallog-Backend/logs/winston/successes/phu-2023-09-09-18-success.log",
+            "hash": "e64f3f17b17ff84463065bca1274bdf696bf78e6dc9d2aaf157c748792f3ab12"
+        },
+        {
+            "date": 1694278996285,
+            "name": "/home/sarker24/next_level_pheho/prisma/Assignment-08/Book-Catallog-Backend/logs/winston/successes/phu-2023-09-09-19-success.log",
+            "hash": "6168dcd828bbdf431d9a9c50f92c8ce209efe4c3c8b2329ca40a52aa3b6b2d83"
+        }
+    ],
+    "hashType": "sha256"
+}
